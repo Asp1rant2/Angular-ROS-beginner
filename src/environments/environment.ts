@@ -3,7 +3,12 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  ROSConfig: {
+    ROSBRIDGE_SERVER_IP: "localhost",
+    ROSBRIDGE_SERVER_PORT: 9090,
+    RECONNECTION_TIMER: 3000
+  }
 };
 
 /*

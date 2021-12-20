@@ -1,0 +1,18 @@
+<div>
+  <div class="text-center m-3">{{robotStatus}}</div>
+  <br>
+  <div class="col">
+    <button class="btn-primary btn-rosAction" (click)="onConnect()">Connect</button>
+<!--    &nbsp;-->
+    <button class="btn-primary btn-rosAction" (click)="onDisconnect()">Disconnect</button>
+  </div>
+  <div *ngIf="robotStatus === 'Connected'">
+    <div class="col">
+      <app-teleop (moveEvent)="onMoveEvent($event)"></app-teleop>
+    </div>
+    <div class="col">
+      <h3 class="text-center">This part is used for displaying Map Component 2021</h3>
+    </div>
+  </div>
+</div>
+

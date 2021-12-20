@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { ConnectionComponent } from './connection/connection.component';
 import { TeleopComponent } from './connection/teleop/teleop.component';
 import {NgxJoystickModule} from "ngx-joystick";
+import { RobotStateComponent } from './connection/robot-state/robot-state.component';
 
 const route: Routes = [
   {path: '', component: HomeComponent},
@@ -21,7 +22,8 @@ const route: Routes = [
     AboutComponent,
     HomeComponent,
     ConnectionComponent,
-    TeleopComponent
+    TeleopComponent,
+    RobotStateComponent
   ],
   imports: [
     BrowserModule,

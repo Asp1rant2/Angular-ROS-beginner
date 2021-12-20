@@ -30,6 +30,10 @@ export class ConnectionComponent implements OnInit {
 
   cmdVel: any = null;
 
+  pose_subscriber: any = null;
+
+  position: any = null
+
   ngOnInit(): void {
     // this.initConnection();
   }
@@ -70,19 +74,15 @@ export class ConnectionComponent implements OnInit {
       messageType : 'geometry_msgs/Twist'
     });
 
-    // var twist = new ROSLIB.Message({
-    //   linear : {
-    //     x : 0.1,
-    //     y : 0.2,
-    //     z : 0.3
-    //   },
-    //   angular : {
-    //     x : -0.1,
-    //     y : -0.2,
-    //     z : -0.3
-    //   }
-    // });
-    // cmdVel.publish(twist);
+    this.pose_subscriber = new ROSLIB.Topic({
+      ros: this.ros,
+      name: "/amcl_pose",
+      messageType: '/geometry_msgs/PoseWithCovarianceStamped',
+    });
+
+    this.pose_subscriber.subscribe((message: any) => {
+      this.position = message;
+    });
   }
 
   onDisconnect() {

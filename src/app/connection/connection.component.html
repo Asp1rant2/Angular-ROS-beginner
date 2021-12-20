@@ -6,9 +6,10 @@
 <!--    &nbsp;-->
     <button class="btn-primary btn-rosAction" (click)="onDisconnect()">Disconnect</button>
   </div>
-  <div *ngIf="robotStatus === 'Connected'">
+  <div *ngIf="robotStatus === 'Connected'" class="row panel-ros">
     <div class="col">
       <app-teleop (moveEvent)="onMoveEvent($event)"></app-teleop>
+      <app-robot-state [position]="position"></app-robot-state>
     </div>
     <div class="col">
       <h3 class="text-center">This part is used for displaying Map Component 2021</h3>
